@@ -1,0 +1,16 @@
+{
+    "builds": [{
+        "src": "mychat/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "*.py", "use": "@vercel/python" },
+    { "src": "*.js", "use": "@vercel/node" }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "mychat/wsgi.py"
+        }
+    ]
+}
